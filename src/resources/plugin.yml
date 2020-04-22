@@ -1,0 +1,11 @@
+name: HideNSeek
+main: pl.extollite.hidenseek.HNS
+version: "${pom.version}"
+api: ["1.0.0"]
+load: POSTWORLD
+authors: ["Extollite"]
+description: Hide'n'Seek nukkit plugin
+prefix: "HNS"
+depend:
+  - EssentialsNK
+  - PlaceholderAPI

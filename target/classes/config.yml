@@ -1,0 +1,54 @@
+#if true then only main commands will be listed
+#if false also overloads commands will be listed
+only-main-commands: true
+
+#Game Settings
+settings:
+  hide-time: 10
+  seekers-room-size: 7
+  hiders-stand-time: 6
+  globalexit:
+    enable: false
+    level: world
+    x: 0
+    y: 0
+    z: 0
+
+blocks:
+  - "5:0:textures/blocks/planks_oak.png" #ID:META:Image_Name
+  - "47:0:textures/blocks/bookshelf.png"
+
+blockPickItem:
+  id: 140
+  meta: 0
+  name: "Pick block"
+  lore:
+    - "Pick block"
+    - "Which you will be in game"
+
+mapPickItem:
+  id: 140
+  meta: 0
+  name: "Pick map"
+  lore:
+    - "Pick map"
+    - "Which you will be playing on"
+
+hidersItem: "268 1 enchant:sharpness:1"
+give-item-after: 60
+
+seekers-power: 15
+
+kits:
+  standard:
+    name: "Standard"
+    permission: null
+    helmet: "298 color:red"
+    chestplate: "299 color:red"
+    leggings: "300 color:red"
+    boots: "301 color:red"
+    inventory:
+          - "268 1 enchant:sharpness:1"
+
+shop:
+  - "HNS Coupon:15:givecoupon \"%player_name%\" hnscoupon"

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="973d5274-57e9-4057-afda-67d73ae3d43c" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1aBYJ9rkdu6JjVMS0tG8p6ErQCd" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pl/extollite/hidenseek" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="pl.extollite.hidenseek.form" />
+      <recent name="pl.extollite.hidenseek.command.user" />
+      <recent name="pl.extollite.hidenseek.listener" />
+      <recent name="pl.extollite.hidenseek.command.admin" />
+      <recent name="pl.extollite.hidenseek.manager" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\git\Hide'n'Seek\src\pl\extollite\hidenseek" />
+      <recent name="E:\git\Hide'n'Seek\src\pl\extollite\hidenseek\command" />
+      <recent name="E:\git\Hide'n'Seek\libs" />
+      <recent name="E:\git\Hide'n'Seek\src\resources" />
+      <recent name="E:\git\Hide'n'Seek" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean" />
+      <command value="mvn clean install" />
+      <command value="mvn install" />
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="973d5274-57e9-4057-afda-67d73ae3d43c" name="Default Changelist" comment="" />
+      <created>1586210379999</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1586210379999</updated>
+      <workItem from="1586210396892" duration="732000" />
+      <workItem from="1586211904933" duration="148000" />
+      <workItem from="1586273230813" duration="170000" />
+      <workItem from="1586363624206" duration="3710000" />
+      <workItem from="1586461553420" duration="5905000" />
+      <workItem from="1586618823784" duration="3567000" />
+      <workItem from="1586942013773" duration="1836000" />
+      <workItem from="1587022469362" duration="18000" />
+      <workItem from="1587134079755" duration="9712000" />
+      <workItem from="1587162131955" duration="4000" />
+      <workItem from="1587205839658" duration="3528000" />
+      <workItem from="1587220100396" duration="380000" />
+      <workItem from="1587291435403" duration="24083000" />
+      <workItem from="1587320930143" duration="6559000" />
+      <workItem from="1587334596538" duration="2826000" />
+      <workItem from="1587368556624" duration="32323000" />
+      <workItem from="1587460469540" duration="7611000" />
+      <workItem from="1587468218764" duration="2855000" />
+      <workItem from="1587487723107" duration="4493000" />
+      <workItem from="1587500891482" duration="35000" />
+      <workItem from="1587577854963" duration="1761000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="574" y="148" key="#com.intellij.ide.util.MemberChooser" timestamp="1587385765694">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="574" y="148" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1587385765694" />
+    <state x="561" y="302" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1587387455810">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="561" y="302" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1587387455810" />
+    <state x="130" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1587302703610">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="130" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1587302703610" />
+    <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586463309760">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1586463309760" />
+    <state width="1493" height="238" key="GridCell.Tab.0.bottom" timestamp="1587579696557">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="238" key="GridCell.Tab.0.bottom/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1587579696557" />
+    <state width="1493" height="238" key="GridCell.Tab.0.center" timestamp="1587579696556">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="238" key="GridCell.Tab.0.center/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1587579696556" />
+    <state width="1493" height="238" key="GridCell.Tab.0.left" timestamp="1587579696556">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="238" key="GridCell.Tab.0.left/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1587579696556" />
+    <state width="1493" height="238" key="GridCell.Tab.0.right" timestamp="1587579696557">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="238" key="GridCell.Tab.0.right/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1587579696557" />
+    <state x="452" y="148" width="909" height="568" key="find.popup" timestamp="1587487843788">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="452" y="148" width="909" height="568" key="find.popup/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1587487843788" />
+    <state x="209" y="11" key="new project wizard" timestamp="1587220452952">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="209" y="11" key="new project wizard/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1587220452952" />
+    <state x="425" y="197" width="672" height="677" key="run.anything.popup" timestamp="1587579607201">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="425" y="197" width="672" height="677" key="run.anything.popup/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1587579607201" />
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1587463659628">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1587463659628" />
+  </component>
+</project>
