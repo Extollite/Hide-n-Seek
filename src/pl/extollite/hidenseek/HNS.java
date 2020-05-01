@@ -100,11 +100,11 @@ public class HNS extends PluginBase {
             HNSUtils.sendMessage(player, "&cYour arena is marked as broken! use &7/hns debug &c to check for errors!");
             HNSUtils.sendMessage(player, "&cIf no errors are found, please use &7/hns toggle " + game.getName() + "&c!");
             return;
-        } else if (game.getS() == null) {
+        } /*else if (game.getS() == null) {
             HNSUtils.sendMessage(player, "&cYour lobby sign is invalid! Please reset them!");
             HNSUtils.sendMessage(player, "&cSet lobby sign: &7/hnsa setsign " + game.getName());
             return;
-        } else if (game.getLobby() == null) {
+        }*/ else if (game.getLobby() == null) {
             HNSUtils.sendMessage(player, "&cYour lobby is invalid! Please reset them!");
             HNSUtils.sendMessage(player, "&cSet lobby: &7/hnsa setlobby " + game.getName());
             return;

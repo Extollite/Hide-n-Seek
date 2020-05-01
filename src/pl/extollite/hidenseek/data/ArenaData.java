@@ -30,8 +30,9 @@ public class ArenaData {
                 maxplayers = arenas.getInt("arenas." + arena + ".info.max-players");
                 seekers = arenas.getInt("arenas." + arena + ".info.start-seekers");
                 hide = arenas.getInt("arenas." + arena + ".info.hide-time");
-                Level lobby = HNS.getInstance().getServer().getLevelByName(arenas.getString("arenas."+arena+".lobbysign.level"));
+/*                Level lobby = HNS.getInstance().getServer().getLevelByName(arenas.getString("arenas."+arena+".lobbysign.level"));
                 lobbysign = (BlockEntitySign)lobby.getBlockEntity(new Vector3(arenas.getInt("arenas."+arena+".lobbysign.x"), arenas.getInt("arenas."+arena+".lobbysign.y"), arenas.getInt("arenas."+arena+".lobbysign.z")));
+                lobbysign.level = lobby;*/
                 List<MapEntry> maps = new LinkedList<>();
                 for(String map : arenas.getSection("arenas."+arena+".map").getKeys(false)){
                     String name = arenas.getString("arenas."+arena+".map."+map+".name");
@@ -53,11 +54,12 @@ public class ArenaData {
                     } else{
                         mapBlocks = ConfigData.standardBlocks;
                     }
+                    hidersLoc.getLevel().setAutoSave(false);
                     MapEntry entry = new MapEntry(name, seekersLoc, hidersLoc, mapBlocks);
                     maps.add(entry);
                 }
                 Location lobbyLoc = new Location(arenas.getInt("arenas."+arena+".lobby.x"), arenas.getInt("arenas."+arena+".lobby.y"), arenas.getInt("arenas."+arena+".lobby.z"), HNS.getInstance().getServer().getLevelByName(arenas.getString("arenas."+arena+".lobby.level")));
-                Game game = new Game(arena, lobbysign, timer, minplayers, maxplayers, seekers, hide, true, maps, lobbyLoc);
+                Game game = new Game(arena, null, timer, minplayers, maxplayers, seekers, hide, true, maps, lobbyLoc);
                 HNS.getInstance().getGames().add(game);
             }
         }

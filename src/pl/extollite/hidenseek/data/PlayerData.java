@@ -23,6 +23,7 @@ public class PlayerData {
 	//Pregame data
 	private Map<Integer, Item> inv;
 	private Item[] equip;
+	private Map<Integer, Item> offhand;
 	private int expL;
 	private int expP;
 	private float health;
@@ -44,6 +45,7 @@ public class PlayerData {
 		this.player = player;
 		inv = player.getInventory().getContents();
 		equip = player.getInventory().getArmorContents();
+		offhand = player.getOffhandInventory().getContents();
 		expL = player.getExperienceLevel();
 		expP = player.getExperience();
 		mode = player.getGamemode();
@@ -70,6 +72,7 @@ public class PlayerData {
 		player.getFoodData().sendFoodLevel();
 		player.getInventory().setContents(inv);
 		player.getInventory().setArmorContents(equip);
+		player.getOffhandInventory().setContents(offhand);
 		player.setGamemode(mode);
 		player.sendAllInventories();
 		player.invulnerable = false;

@@ -10,6 +10,7 @@ import cn.nukkit.event.Listener;
 import cn.nukkit.event.block.BlockBreakEvent;
 import cn.nukkit.event.block.ItemFrameDropItemEvent;
 import cn.nukkit.event.entity.EntityDamageByEntityEvent;
+import cn.nukkit.event.level.LevelSaveEvent;
 import cn.nukkit.event.player.*;
 import cn.nukkit.event.server.DataPacketReceiveEvent;
 import cn.nukkit.inventory.transaction.data.UseItemData;
@@ -107,7 +108,7 @@ public class GameListener implements Listener {
 
     @EventHandler
     public void onItemUse(PlayerInteractEvent event) {
-        if (event.isCancelled())
+        if (event.isCancelled() || event.getItem() == null)
             return;
         Player player = event.getPlayer();
         Game g = HNS.getInstance().getPlayerManager().getGame(player);
@@ -125,7 +126,7 @@ public class GameListener implements Listener {
         }
     }
 
-    @EventHandler
+    /*@EventHandler
     private void onPlayerClickLobby(PlayerInteractEvent event) {
         Player p = event.getPlayer();
         if (event.getAction().equals(PlayerInteractEvent.Action.RIGHT_CLICK_BLOCK) || event.getAction().equals(PlayerInteractEvent.Action.LEFT_CLICK_BLOCK)) {
@@ -149,7 +150,7 @@ public class GameListener implements Listener {
                 }
             }
         }
-    }
+    }*/
 
     @EventHandler
     public void onAttack(EntityDamageByEntityEvent event) {
@@ -251,6 +252,15 @@ public class GameListener implements Listener {
                 for (Player h : g.getHiders())
                     event.getRecipients().remove(h);
             }
+        }
+    }
+
+    @EventHandler
+    private void onFood(PlayerFoodLevelChangeEvent event){
+        Player p = event.getPlayer();
+        Game g = HNS.getInstance().getPlayerManager().getGame(p);
+        if (g != null) {
+            event.setCancelled();
         }
     }
 

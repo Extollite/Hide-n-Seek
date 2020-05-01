@@ -238,12 +238,12 @@ public class Game {
     }
 
     private void updateLobbyBlock() {
-        String[] lines = new String[4];
+/*        String[] lines = new String[4];
         lines[0] = HNSUtils.colorize(getLang().getLine_1());
         lines[1] = HNSUtils.colorize(getLang().getLine_2().replace("%status%", status.getName()));
         lines[2] = HNSUtils.colorize(getLang().getLine_3().replace("%players_count%", "" + (seekers.size()+hiders.size()) + "/" + maxPlayers));
         lines[3] = HNSUtils.colorize(getLang().getLine_4().replace("%arena%", getName()));
-        s.setText(lines);
+        s.setText(lines);*/
     }
 
     private void heal(Player player) {
@@ -274,7 +274,7 @@ public class Game {
     }
 
     public void setLobbyBlock(BlockEntitySign sign) {
-        try {
+/*        try {
             this.s = sign;
             String[] lines = new String[4];
             lines[0] = HNSUtils.colorize(getLang().getLine_1());
@@ -289,7 +289,7 @@ public class Game {
             this.exit = ConfigData.globalExit;
         } else {
             this.exit = Location.fromObject(s.getLevel().getSafeSpawn(), s.getLevel());
-        }
+        }*/
     }
 
     public void cancelTasks() {
