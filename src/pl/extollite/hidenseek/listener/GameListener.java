@@ -1,16 +1,12 @@
 package pl.extollite.hidenseek.listener;
 
 import cn.nukkit.Player;
-import cn.nukkit.block.Block;
-import cn.nukkit.block.BlockAir;
-import cn.nukkit.blockentity.BlockEntitySign;
 import cn.nukkit.entity.Entity;
 import cn.nukkit.event.EventHandler;
 import cn.nukkit.event.Listener;
 import cn.nukkit.event.block.BlockBreakEvent;
 import cn.nukkit.event.block.ItemFrameDropItemEvent;
 import cn.nukkit.event.entity.EntityDamageByEntityEvent;
-import cn.nukkit.event.level.LevelSaveEvent;
 import cn.nukkit.event.player.*;
 import cn.nukkit.event.server.DataPacketReceiveEvent;
 import cn.nukkit.inventory.transaction.data.UseItemData;
@@ -19,9 +15,8 @@ import cn.nukkit.level.Location;
 import cn.nukkit.math.BlockVector3;
 import cn.nukkit.math.Vector3;
 import cn.nukkit.network.protocol.InventoryTransactionPacket;
-import cn.nukkit.utils.TextFormat;
-import pl.extollite.hidenseek.EntityFalling;
-import pl.extollite.hidenseek.FakeBlockEntity;
+import pl.extollite.hidenseek.entity.EntityBlock;
+import pl.extollite.hidenseek.entity.FakeBlockEntity;
 import pl.extollite.hidenseek.HNS;
 import pl.extollite.hidenseek.data.ConfigData;
 import pl.extollite.hidenseek.data.Leaderboard;
@@ -42,7 +37,7 @@ public class GameListener implements Listener {
             if ((g.getStatus() == Status.RUNNING || g.getStatus() == Status.BEGINNING) && g.getHiders().contains(player)) {
                 if (ev.getTo().getX() != ev.getFrom().getX() || ev.getTo().getZ() != ev.getFrom().getZ() || ev.getTo().getY() != ev.getFrom().getY()) {
                     Entity link = g.getLinkBlock().get(player);
-                    if (link instanceof EntityFalling) {
+                    if (link instanceof EntityBlock) {
                         link.setPositionAndRotation(ev.getTo(), ev.getTo().yaw, ev.getTo().pitch);
                         g.getTimers().put(player, 0);
                         player.setExperience(0, ConfigData.standTime);
@@ -63,7 +58,6 @@ public class GameListener implements Listener {
                 double distance = x + z;
                 if (distance >= ConfigData.seekersRoomSize) {
                     ev.setCancelled();
-                    //player.teleport(ev.getFrom());
                 }
             }
         }
@@ -264,7 +258,7 @@ public class GameListener implements Listener {
         }
     }
 
-    @EventHandler // Prevent players breaking item frames
+    @EventHandler
     private void onBreakItemFrame(ItemFrameDropItemEvent event) {
         Player p = event.getPlayer();
         Game g = HNS.getInstance().getPlayerManager().getGame(p);
@@ -284,32 +278,30 @@ public class GameListener implements Listener {
         if (event.getPacket() instanceof InventoryTransactionPacket) {
             InventoryTransactionPacket transactionPacket = (InventoryTransactionPacket) event.getPacket();
 
-            switch (transactionPacket.transactionType) {
-                case InventoryTransactionPacket.TYPE_USE_ITEM:
-                    UseItemData useItemData = (UseItemData) transactionPacket.transactionData;
+            if (transactionPacket.transactionType == InventoryTransactionPacket.TYPE_USE_ITEM) {
+                UseItemData useItemData = (UseItemData) transactionPacket.transactionData;
 
-                    BlockVector3 blockVector = useItemData.blockPos;
+                BlockVector3 blockVector = useItemData.blockPos;
 
-                    int type = useItemData.actionType;
-                    switch (type) {
-                        case InventoryTransactionPacket.USE_ITEM_ACTION_CLICK_BLOCK:
-                            if (g.getPlayersBlocks().containsKey(blockVector.asVector3())) {
-                                event.setCancelled();
+                int type = useItemData.actionType;
+                switch (type) {
+                    case InventoryTransactionPacket.USE_ITEM_ACTION_CLICK_BLOCK:
+                        if (g.getPlayersBlocks().containsKey(blockVector.asVector3())) {
+                            event.setCancelled();
+                        }
+                        return;
+                    case InventoryTransactionPacket.USE_ITEM_ACTION_BREAK_BLOCK:
+                        if (g.getPlayersBlocks().containsKey(blockVector.asVector3())) {
+                            if (g.getSeekers().contains(player) && !processHit(player, g, blockVector.asVector3())) {
+                                return;
                             }
-                            return;
-                        case InventoryTransactionPacket.USE_ITEM_ACTION_BREAK_BLOCK:
-                            if (g.getPlayersBlocks().containsKey(blockVector.asVector3())) {
-                                if(g.getSeekers().contains(player) && !processHit(player, g, blockVector.asVector3())){
-                                    return;
-                                }
-                                Player p = g.getPlayersBlocks().get(blockVector.asVector3());
-                                g.getLinkBlock().get(p).spawnTo(player);
-                                event.setCancelled();
-                            }
-                            return;
-                        default:
-                            return;
-                    }
+                            Player p = g.getPlayersBlocks().get(blockVector.asVector3());
+                            g.getLinkBlock().get(p).spawnTo(player);
+                            event.setCancelled();
+                        }
+                        return;
+                    default:
+                }
             }
         }
     }

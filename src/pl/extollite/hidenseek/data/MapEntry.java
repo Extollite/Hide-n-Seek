@@ -8,11 +8,11 @@ import java.util.Map;
 
 @Getter
 public class MapEntry {
-    private String name;
+    private final String name;
     private Location spawnSeekers;
     private Vector2 vec2Seekers;
     private Location spawnHiders;
-    private Map<String, Block> mapBlocks;
+    private final Map<String, Block> mapBlocks;
 
     public MapEntry(String name, Location spawnSeekers, Location spawnHiders, Map<String, Block> mapBlocks) {
         this.name = name;

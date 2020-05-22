@@ -83,8 +83,6 @@ public class ItemManager {
         }
     }
 
-    // Get a potion item stack from a string
-    // DEPRECATED - will remove in future
     private static Item getPotion(String item) {
         String[] potionData = item.split(":");
         try{

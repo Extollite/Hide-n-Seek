@@ -11,16 +11,10 @@ import pl.extollite.hidenseek.game.Game;
 
 import java.util.Map;
 
-/**
- * Player data object for holding pre-game player info
- */
 @Setter
 @Getter
 @ToString
-@SuppressWarnings("WeakerAccess")
 public class PlayerData {
-
-	//Pregame data
 	private Map<Integer, Item> inv;
 	private Item[] equip;
 	private Map<Integer, Item> offhand;
@@ -32,14 +26,9 @@ public class PlayerData {
 	private float saturation;
 	private int mode;
 	private Player player;
-	
-	//InGame data
+
 	private Game game;
 
-	/** New player pre-game data file
-	 * @param player Player to save
-	 * @param game Game they will be entering
-	 */
 	public PlayerData(Player player, Game game) {
 		this.game = game;
 		this.player = player;
@@ -59,9 +48,6 @@ public class PlayerData {
 		player.setExperience(0, 0);
 	}
 
-	/** Restore a player's saved data
-	 * @param player Player to restore data to
-	 */
 	public void restore(Player player) {
 		if (player == null) return;
 		player.getInventory().clearAll();
@@ -79,7 +65,6 @@ public class PlayerData {
 		restoreHealth(player);
 	}
 
-	// Restores later if player has an item in their inventory which changes their max health value
 	private void restoreHealth(Player player) {
 		float att = Attribute.getAttribute(Attribute.MAX_HEALTH).getDefaultValue();
 		if (health > att) {
@@ -92,5 +77,4 @@ public class PlayerData {
 			player.setHealth(health);
 		}
 	}
-
 }

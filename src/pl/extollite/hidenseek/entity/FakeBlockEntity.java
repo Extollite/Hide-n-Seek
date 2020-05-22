@@ -1,4 +1,4 @@
-package pl.extollite.hidenseek;
+package pl.extollite.hidenseek.entity;
 
 import cn.nukkit.Player;
 import cn.nukkit.block.Block;
@@ -11,20 +11,14 @@ import cn.nukkit.nbt.tag.CompoundTag;
 import cn.nukkit.nbt.tag.DoubleTag;
 import cn.nukkit.nbt.tag.FloatTag;
 import cn.nukkit.nbt.tag.ListTag;
-import cn.nukkit.network.protocol.RemoveEntityPacket;
 import cn.nukkit.network.protocol.UpdateBlockPacket;
-import co.aikar.timings.Timings;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.NoSuchElementException;
 
 public class FakeBlockEntity extends EntityFallingBlock {
 
-    private Player linked;
-    private Block block;
-    private Vector3 position;
-    private EntityFalling falling;
+    private final Player linked;
+    private final Block block;
+    private final Vector3 position;
+    private EntityBlock falling;
     boolean first = true;
 
     public FakeBlockEntity(FullChunk chunk, CompoundTag nbt, Player player, Block block) {
@@ -57,7 +51,7 @@ public class FakeBlockEntity extends EntityFallingBlock {
                     .putInt("TileID", block.getId())
                     .putByte("Data", block.getDamage());
 
-            falling = new EntityFalling(linked.getLevel().getChunk((int) linked.x >> 4, (int) linked.z >> 4), nbt, linked);
+            falling = new EntityBlock(linked.getLevel().getChunk((int) linked.x >> 4, (int) linked.z >> 4), nbt, linked);
             falling.spawnTo(linked);
             return;
         }

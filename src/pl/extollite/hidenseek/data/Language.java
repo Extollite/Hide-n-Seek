@@ -8,123 +8,123 @@ import java.util.List;
 @Getter
 public class Language {
     //General Translations
-    private String prefix;
-    private String cmd_no_permission;
+    private final String prefix;
+    private final String cmd_no_permission;
 
     //Game Message Translations
-    private String player_joined_game;
-    private String player_left_game;
-    private String game_started;
-    private String game_join;
-    private String game_countdown;
-    private String game_almost_over;
-    private String game_ending_minsec;
-    private String game_ending_min;
-    private String game_ending_sec;
-    private String game_teleport;
-    private String players_to_start;
-    private String arena_not_ready;
-    private String game_full;
-    private String game_seekers_won;
-    private String game_hiders_won;
-    private String game_player_dead;
-    private String game_gained_points;
+    private final String player_joined_game;
+    private final String player_left_game;
+    private final String game_started;
+    private final String game_join;
+    private final String game_countdown;
+    private final String game_almost_over;
+    private final String game_ending_minsec;
+    private final String game_ending_min;
+    private final String game_ending_sec;
+    private final String game_teleport;
+    private final String players_to_start;
+    private final String arena_not_ready;
+    private final String game_full;
+    private final String game_seekers_won;
+    private final String game_hiders_won;
+    private final String game_player_dead;
+    private final String game_gained_points;
 
-    private String gamestart_countdown;
+    private final String gamestart_countdown;
 
-    private String game_timer;
+    private final String game_timer;
 
     // Command Translations
-    private List<String> cmd_admin_usage;
+    private final List<String> cmd_admin_usage;
 
 
     // Admin Command Translations
-    private List<String> cmd_usage;
+    private final List<String> cmd_usage;
 
-    private String cmd_sign_set;
+    private final String cmd_sign_set;
 
-    private String cmd_handler_nocmd;
-    private String cmd_handler_playing;
+    private final String cmd_handler_nocmd;
+    private final String cmd_handler_playing;
 
-    private String cmd_create_minmax;
-    private String cmd_create_created;
+    private final String cmd_create_minmax;
+    private final String cmd_create_created;
 
-    private String cmd_spawn_set;
+    private final String cmd_spawn_set;
 
-    private String cmd_lobby_set;
+    private final String cmd_lobby_set;
 
-    private String cmd_exit_set;
+    private final String cmd_exit_set;
 
-    private String cmd_delete_attempt;
-    private String cmd_delete_kicking;
-    private String cmd_delete_deleted;
-    private String cmd_delete_failed;
-    private String cmd_delete_noexist;
+    private final String cmd_delete_attempt;
+    private final String cmd_delete_kicking;
+    private final String cmd_delete_deleted;
+    private final String cmd_delete_failed;
+    private final String cmd_delete_noexist;
 
-    private String cmd_join_in_game;
+    private final String cmd_join_in_game;
 
-    private String cmd_leave_left;
-    private String cmd_leave_not_in_game;
+    private final String cmd_leave_left;
+    private final String cmd_leave_not_in_game;
 
-    private String cmd_toggle_locked;
-    private String cmd_toggle_unlocked;
+    private final String cmd_toggle_locked;
+    private final String cmd_toggle_unlocked;
 
-    private String cmd_start_starting;
-    private String cmd_stop_all;
-    private String cmd_stop_arena;
-    private String cmd_stop_noexist;
+    private final String cmd_start_starting;
+    private final String cmd_stop_all;
+    private final String cmd_stop_arena;
+    private final String cmd_stop_noexist;
 
     // Status Translations
-    private String status_running;
-    private String status_stopped;
-    private String status_ready;
-    private String status_waiting;
-    private String status_broken;
-    private String status_rollback;
-    private String status_not_ready;
-    private String status_beginning;
-    private String status_countdown;
-    private String status_final;
+    private final String status_running;
+    private final String status_stopped;
+    private final String status_ready;
+    private final String status_waiting;
+    private final String status_broken;
+    private final String status_rollback;
+    private final String status_not_ready;
+    private final String status_beginning;
+    private final String status_countdown;
+    private final String status_final;
 
     //Lobby Sign Translations
-    private String line_1;
-    private String line_2;
-    private String line_3;
-    private String line_4;
+    private final String line_1;
+    private final String line_2;
+    private final String line_3;
+    private final String line_4;
 
     //Block Translations
-    private String block_menu_title;
-    private String block_menu_content;
+    private final String block_menu_title;
+    private final String block_menu_content;
 
     //Map Translations
-    private String map_menu_title;
-    private String map_menu_content;
-    private String map_menu_votes;
-    private String map_voted;
-    private String map_won;
+    private final String map_menu_title;
+    private final String map_menu_content;
+    private final String map_menu_votes;
+    private final String map_voted;
+    private final String map_won;
 
     //Stats Translations
-    private String stats_menu_title;
-    private String stats_menu_content_1;
-    private String stats_menu_content_2;
-    private String stats_menu_content_3;
-    private String stats_button;
+    private final String stats_menu_title;
+    private final String stats_menu_content_1;
+    private final String stats_menu_content_2;
+    private final String stats_menu_content_3;
+    private final String stats_button;
 
-    private String stats_shop_title;
-    private String stats_shop_content;
-    private String stats_shop_success;
-    private String stats_shop_fail;
+    private final String stats_shop_title;
+    private final String stats_shop_content;
+    private final String stats_shop_success;
+    private final String stats_shop_fail;
 
     //Roam Translations
-    private String hide_game_started;
-    private String hide_time;
-    private String hide_finished;
-    private String hide_action_bar;
+    private final String hide_game_started;
+    private final String hide_time;
+    private final String hide_finished;
+    private final String hide_action_bar;
 
-    private String listener_not_running;
-    private String listener_no_edit_block;
-    private String listener_no_interact;
-    private String listener_sign_click_hand;
+    private final String listener_not_running;
+    private final String listener_no_edit_block;
+    private final String listener_no_interact;
+    private final String listener_sign_click_hand;
 
     public Language() {
         Config langFile = new Config(HNS.getInstance().getDataFolder() + "/language.yml", Config.YAML);

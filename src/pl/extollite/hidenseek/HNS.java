@@ -29,14 +29,14 @@ public class HNS extends PluginBase {
     private Language language;
     private PlayerManager playerManager;
     private Leaderboard leaderboard;
-    private List<Game> games = new LinkedList<>();
-    private List<KitEntry> kits = new LinkedList<>();
-    private Map<Player, Integer> openedWindows = new HashMap<>();
+    private final List<Game> games = new LinkedList<>();
+    private final List<KitEntry> kits = new LinkedList<>();
+    private final Map<Player, Integer> openedWindows = new HashMap<>();
 
     private HNSACommand mainAdminCommand;
     private HNSCommand mainCommand;
 
-    private PlaceholderAPI papi = PlaceholderAPI.getInstance();
+    private final PlaceholderAPI papi = PlaceholderAPI.getInstance();
 
     @Override
     public void onEnable() {
@@ -202,33 +202,33 @@ public class HNS extends PluginBase {
     public void registerPlaceholders(){
         for(int i = 0; i < 10; i++){
             int finalI = i;
-            papi.staticPlaceholder("hns_top_points_"+(finalI+1), () -> {
+            papi.staticPlaceholder("hns_top_points_"+(finalI+1), (parameters) -> {
                 if(leaderboard.getStatsScores(Leaderboard.Stats.POINTS).size() > finalI){
                     return leaderboard.getStatsScores(Leaderboard.Stats.POINTS).get(finalI);
                 }
                 return "";
             }, 1, true);
-            papi.staticPlaceholder("hns_top_games_"+(finalI+1), () -> {
+            papi.staticPlaceholder("hns_top_games_"+(finalI+1), (parameters) -> {
                 if(leaderboard.getStatsScores(Leaderboard.Stats.GAMES).size() > finalI){
                     return leaderboard.getStatsScores(Leaderboard.Stats.GAMES).get(finalI);
                 }
                 return "";
             }, 1, true);
-            papi.staticPlaceholder("hns_top_player_points_"+(finalI+1), () -> {
+            papi.staticPlaceholder("hns_top_player_points_"+(finalI+1), (parameters) -> {
                 if(leaderboard.getStatsPlayers(Leaderboard.Stats.POINTS).size() > finalI){
                     return leaderboard.getStatsPlayers(Leaderboard.Stats.POINTS).get(finalI);
                 }
                 return "";
             }, 1, true);
-            papi.staticPlaceholder("hns_top_player_games_"+(finalI+1), () -> {
+            papi.staticPlaceholder("hns_top_player_games_"+(finalI+1), (parameters) -> {
                 if(leaderboard.getStatsPlayers(Leaderboard.Stats.GAMES).size() > finalI){
                     return leaderboard.getStatsPlayers(Leaderboard.Stats.GAMES).get(finalI);
                 }
                 return "";
             }, 1, true);
         }
-        papi.visitorSensitivePlaceholder("player_points", player -> leaderboard.getStat(player, Leaderboard.Stats.POINTS));
-        papi.visitorSensitivePlaceholder("player_curr_points", player -> leaderboard.getStat(player, Leaderboard.Stats.CURR_POINTS));
-        papi.visitorSensitivePlaceholder("player_game_played", player -> leaderboard.getStat(player, Leaderboard.Stats.GAMES));
+        papi.visitorSensitivePlaceholder("player_points", (player, parameters) -> leaderboard.getStat(player, Leaderboard.Stats.POINTS));
+        papi.visitorSensitivePlaceholder("player_curr_points", (player, parameters) -> leaderboard.getStat(player, Leaderboard.Stats.CURR_POINTS));
+        papi.visitorSensitivePlaceholder("player_game_played", (player, parameters) -> leaderboard.getStat(player, Leaderboard.Stats.GAMES));
     }
 }

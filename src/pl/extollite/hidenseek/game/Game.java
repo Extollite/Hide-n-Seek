@@ -12,23 +12,18 @@ import cn.yescallop.essentialsnk.EssentialsAPI;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import pl.extollite.hidenseek.EntityFalling;
+import pl.extollite.hidenseek.entity.EntityBlock;
 import pl.extollite.hidenseek.HNS;
 import pl.extollite.hidenseek.data.*;
-import pl.extollite.hidenseek.form.BlockPickWindow;
 import pl.extollite.hidenseek.form.MapPickWindow;
 import pl.extollite.hidenseek.hnsutils.HNSUtils;
 import pl.extollite.hidenseek.manager.PlayerManager;
-import pl.extollite.hidenseek.FakeBlockEntity;
+import pl.extollite.hidenseek.entity.FakeBlockEntity;
 import pl.extollite.hidenseek.task.HideTask;
 import pl.extollite.hidenseek.task.StartingTask;
 
 import java.util.*;
 
-
-/**
- * General game object
- */
 @Getter
 @Setter
 @ToString
@@ -61,7 +56,6 @@ public class Game {
     private int chestRefillTime = 0;
     private Location exit;
 
-    // Task ID's here!
     private HideTask hideTask;
     private StartingTask starting;
     private pl.extollite.hidenseek.task.TimerTask timer;
@@ -98,41 +92,19 @@ public class Game {
         this.name = name;
     }
 
-    public void addKill(Player player) {
+/*    public void addKill(Player player) {
         this.kills.put(player, this.kills.get(player) + 1);
-    }
+    }*/
 
     public StartingTask getStartingTask() {
         return this.starting;
     }
 
-    /**
-     * Set the status of the game
-     *
-     * @param status Status to set
-     */
     public void setStatus(Status status) {
         this.status = status;
         updateLobbyBlock();
     }
-    /**
-     * Remove a game chest from the game
-     *
-     * @param location Location of the chest to remove
-     */
-    public void removePlayerBlock(Vector3 location) {
-        playersBlocks.remove(location);
-    }
 
-    public boolean containsPlayerBlock(Vector3 location){
-        return playersBlocks.containsKey(location);
-    }
-
-    /**
-     * Join a player to the game
-     *
-     * @param player Player to join the game
-     */
     public void join(Player player) {
         UUID uuid = player.getUniqueId();
         if (status != Status.WAITING && status != Status.STOPPED && status != Status.COUNTDOWN && status != Status.READY) {
@@ -173,38 +145,25 @@ public class Game {
         }
     }
 
-    /**
-     * Start the pregame countdown
-     */
     public void startLobby() {
         status = Status.COUNTDOWN;
         starting = new StartingTask(this);
         updateLobbyBlock();
     }
 
-    /**
-     * Start the free roam state of the game
-     */
     public void startHide() {
         status = Status.BEGINNING;
         updateLobbyBlock();
         hideTask = new HideTask(this);
     }
 
-    /**
-     * Start the game
-     */
+
     public void startGame() {
         status = Status.RUNNING;
         timer = new pl.extollite.hidenseek.task.TimerTask(this, time);
         updateLobbyBlock();
     }
 
-    /**
-     * Send a message to all players in the game
-     *
-     * @param message Message to send
-     */
     public void msgAll(String message) {
         HNSUtils.broadcast(message, hiders);
         HNSUtils.broadcast(message, seekers);
@@ -254,21 +213,11 @@ public class Game {
         HNS.getInstance().getServer().getScheduler().scheduleDelayedTask(HNS.getInstance(), player::extinguish, 1);
     }
 
-    /**
-     * Freeze a player
-     *
-     * @param player Player to freeze
-     */
     public void freeze(Player player) {
         player.setGamemode(Player.SURVIVAL);
         player.setImmobile(true);
     }
 
-    /**
-     * Unfreeze a player
-     *
-     * @param player Player to unfreeze
-     */
     public void unFreeze(Player player) {
         player.setImmobile(false);
     }
@@ -397,10 +346,10 @@ public class Game {
             seekers.remove(player);
             exit(player);
         }
-        updateAfterDeath(player, death);
+        updateAfterDeath(player);
     }
 
-    private void updateAfterDeath(Player player, boolean death) {
+    private void updateAfterDeath(Player player) {
         if (status == Status.RUNNING || status == Status.BEGINNING || status == Status.COUNTDOWN) {
             if (isGameOver()) {
                 HNS.getInstance().getServer().getScheduler().scheduleDelayedTask(plugin, () -> {
@@ -502,7 +451,7 @@ public class Game {
                 .putInt("TileID", blocks.get(player).getId())
                 .putByte("Data", blocks.get(player).getDamage());
 
-        EntityFalling fall = new EntityFalling(player.getLevel().getChunk((int) player.x >> 4, (int) player.z >> 4), nbt, player);
+        EntityBlock fall = new EntityBlock(player.getLevel().getChunk((int) player.x >> 4, (int) player.z >> 4), nbt, player);
         if (fall != null) {
             fall.spawnToAll();
         }

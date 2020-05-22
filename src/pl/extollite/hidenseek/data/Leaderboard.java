@@ -9,16 +9,16 @@ import java.util.*;
 public class Leaderboard {
 
     private Config leaderboardConfig;
-    private Map<String, Integer> points;
-    private Map<String, Integer> curr_points;
-    private Map<String, Integer> gamesPlayed;
+    private final Map<String, Integer> points;
+    private final Map<String, Integer> curr_points;
+    private final Map<String, Integer> gamesPlayed;
 
-    private List<String> sorted_players_points;
-    private List<String> sorted_scores_points;
-    private List<String> sorted_players_curr_points;
-    private List<String> sorted_scores_curr_points;
-    private List<String> sorted_players_gamesPlayed;
-    private List<String> sorted_scores_gamesPlayed;
+    private final List<String> sorted_players_points;
+    private final List<String> sorted_scores_points;
+    private final List<String> sorted_players_curr_points;
+    private final List<String> sorted_scores_curr_points;
+    private final List<String> sorted_players_gamesPlayed;
+    private final List<String> sorted_scores_gamesPlayed;
 
     public Leaderboard() {
         points = new TreeMap<>();
@@ -57,19 +57,10 @@ public class Leaderboard {
         saveLeaderboard();
     }
 
-    /** Add a stat to the leaderboard (Will default to 1)
-     * @param player Player to add
-     * @param stat Stat to add
-     */
     public void addStat(Player player, Stats stat) {
         addStat(player, stat, 1);
     }
 
-    /** Add a stat to the leaderboard
-     * @param player Player to add
-     * @param stat Stat to add
-     * @param amount Amount to add
-     */
     public void addStat(Player player, Stats stat, int amount) {
         addStat(player.getUniqueId(), stat, amount);
     }
@@ -86,21 +77,10 @@ public class Leaderboard {
         return false;
     }
 
-
-    /** Get a stat from the leaderboard
-     * @param player Player to get
-     * @param stat Stat to get
-     * @return Amount of the relative stat
-     */
     public int getStat(Player player, Stats stat) {
         return getStat(player.getUniqueId(), stat);
     }
 
-    /** Get a stat from the leaderboard
-     * @param uuid Uuid of player to get
-     * @param stat Stat to get
-     * @return Amount of the relative stat
-     */
     public int getStat(UUID uuid, Stats stat) {
         Map<String, Integer> map;
         switch (stat) {
@@ -116,11 +96,6 @@ public class Leaderboard {
         return map.getOrDefault(uuid.toString(), 0);
     }
 
-    /** Gets a list of players from a stat
-     * <p>Will match up with scores from {@link #getStatsScores(Stats)}</p>
-     * @param stat Stat to get players from
-     * @return Sorted list of players from a stat
-     */
     public List<String> getStatsPlayers(Stats stat) {
         switch (stat) {
             case GAMES:
@@ -132,11 +107,6 @@ public class Leaderboard {
         }
     }
 
-    /** Gets a list of scores from a stat
-     * <p>Will match up with players from {@link #getStatsPlayers(Stats)}</p>
-     * @param stat Stat to get scores from
-     * @return Sorted list of scores from a stat
-     */
     public List<String> getStatsScores(Stats stat) {
         switch (stat) {
             case GAMES:
@@ -197,15 +167,12 @@ public class Leaderboard {
         return sortedEntries;
     }
 
-    /**
-     * Stat types for leaderboards
-     */
     public enum Stats {
         POINTS("points"),
         CURR_POINTS("curr_points"),
         GAMES("games");
 
-        private String stat;
+        private final String stat;
 
         Stats(String stat) {
             this.stat = stat;
@@ -214,7 +181,6 @@ public class Leaderboard {
         public String getName() {
             return this.stat;
         }
-
     }
 
 }

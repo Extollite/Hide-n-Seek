@@ -11,12 +11,9 @@ import pl.extollite.hidenseek.manager.PlayerManager;
 
 import java.util.UUID;
 
-/**
- * Internal event listener
- */
 public class CancelListener implements Listener {
 
-	private PlayerManager playerManager;
+	private final PlayerManager playerManager;
 
 	public CancelListener() {
 		playerManager = HNS.getInstance().getPlayerManager();

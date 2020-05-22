@@ -1,4 +1,4 @@
-package pl.extollite.hidenseek;
+package pl.extollite.hidenseek.entity;
 
 import cn.nukkit.Player;
 import cn.nukkit.entity.item.EntityFallingBlock;
@@ -7,18 +7,18 @@ import cn.nukkit.event.entity.EntityDamageEvent;
 import cn.nukkit.level.Sound;
 import cn.nukkit.level.format.FullChunk;
 import cn.nukkit.nbt.tag.CompoundTag;
+import pl.extollite.hidenseek.HNS;
 import pl.extollite.hidenseek.game.Game;
 
-public class EntityFalling extends EntityFallingBlock {
-    private Player linked;
-    public EntityFalling(FullChunk chunk, CompoundTag nbt, Player player) {
+public class EntityBlock extends EntityFallingBlock {
+    private final Player linked;
+    public EntityBlock(FullChunk chunk, CompoundTag nbt, Player player) {
         super(chunk, nbt);
         this.onGround = true;
         this.setImmobile(true);
         this.linked = player;
         this.closed = false;
     }
-
 
     @Override
     protected float getGravity() {
